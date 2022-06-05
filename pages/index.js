@@ -16,12 +16,12 @@ export async function getStaticProps() {
   return {
     props: {
       posts: data.data.posts
-    }
+    },
+    revalidate: 60
   };
 }
 
 export default function Home({ posts }) {
-  console.log(posts)
   return (
     <div>
       <Head>

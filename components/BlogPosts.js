@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function BlogPosts({ posts }) {
-  console.log('posts', posts)
   return (
     <div>
       {posts.map(p => {

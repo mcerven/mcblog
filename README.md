@@ -1,6 +1,6 @@
 # mcblog
 
-A simple blog website built using Jamstack architecture.
+A simple blog built using Jamstack architecture.
 
 ## Tech used
 - NextJS
