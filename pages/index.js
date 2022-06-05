@@ -4,14 +4,7 @@ import { client } from '../graphql/graphqlClient';
 import BlogPosts from '../components/BlogPosts';
 
 export async function getStaticProps() {
-  let data;
-
-  try {
-    data = await client.query({ query: POSTS });
-  }
-  catch (err) {
-    console.log('ERROR', err);
-  }
+  const data = await client.query({ query: POSTS });
 
   return {
     props: {

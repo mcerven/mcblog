@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function BlogPosts({ posts }) {
@@ -6,7 +7,7 @@ export default function BlogPosts({ posts }) {
       {posts.map(p => {
         return (
           <div key={p.id}>
-            {p.title}
+            <Link href={`/posts/${p.slug}`}>{p.title}</Link>
           </div>
         )
       })}
