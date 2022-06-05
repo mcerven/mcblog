@@ -28,17 +28,23 @@ export async function getStaticProps({ params }) {
 export default function Post({ post }) {
   return (
     <main>
-      <Link href="/">Home</Link>
+      <Link href="/">
+        <button className="btn btn-primary">Back</button>
+      </Link>
       <div>
         <h1>{ post.title }</h1>
         <div className="author">
           <h6>{post.author.name}</h6>
-          <Image
-            width={64}
-            height={64}
-            src={post.author.avatar.url}
-            alt={post.author.name}>
-          </Image>
+          <div className="avatar">
+            <div className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <Image
+                width={64}
+                height={64}
+                src={post.author.avatar.url}
+                alt={post.author.name}>
+              </Image>
+            </div>
+          </div>
         </div>
         <div
           dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
