@@ -1,7 +1,10 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import { GraphqlProvider } from '../graphql/graphqlClient';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <GraphqlProvider>
+      <Component {...pageProps} />
+    </GraphqlProvider>
+  );
 }
-
-export default MyApp
