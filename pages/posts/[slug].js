@@ -1,6 +1,8 @@
 import React from 'react';
 import { POST, POST_SLUGS } from '../../graphql/queries';
 import { client } from '../../graphql/graphqlClient';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export async function getStaticPaths() {
   const data = await client.query({ query: POST_SLUGS });
@@ -26,7 +28,21 @@ export async function getStaticProps({ params }) {
 export default function Post({ post }) {
   return (
     <main>
-      { post.title }
+      <Link href="/">Home</Link>
+      <div>
+        <h1>{ post.title }</h1>
+        <div className="author">
+          <h6>{post.author.name}</h6>
+          <Image
+            width={64}
+            height={64}
+            src={post.author.avatar.url}
+            alt={post.author.name}>
+          </Image>
+        </div>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
+      </div>
     </main>
   )
 }
