@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# mcblog
+
+A simple blog website built using Jamstack architecture.
+
+## Tech used
+- NextJS
+- Apollo Client
+- GraphCMS - Headless CMS with GraphQL API
 
 ## Getting Started
 
