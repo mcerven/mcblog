@@ -3,6 +3,7 @@ import { POST, POST_SLUGS } from '../../graphql/queries';
 import { client } from '../../graphql/graphqlClient';
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 
 export async function getStaticPaths() {
   const data = await client.query({ query: POST_SLUGS });
@@ -27,7 +28,10 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ post }) {
   return (
-    <main>
+    <div>
+      <Head>
+        <title>{post.title} | MC Blog</title>
+      </Head>
       <Link href="/">
         <button className="btn btn-primary">Back</button>
       </Link>
@@ -49,6 +53,6 @@ export default function Post({ post }) {
         <div
           dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
       </div>
-    </main>
+    </div>
   )
 }
