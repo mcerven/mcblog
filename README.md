@@ -6,6 +6,8 @@ A simple blog built using Jamstack architecture.
 - NextJS
 - Apollo Client
 - GraphCMS - Headless CMS with GraphQL API
+- TailwindCSS
+- DaisyUI
 
 ## Getting Started
 

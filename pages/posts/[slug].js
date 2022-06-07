@@ -1,7 +1,6 @@
 import React from 'react';
 import { POST, POST_SLUGS } from '../../graphql/queries';
 import { client } from '../../graphql/graphqlClient';
-import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -32,13 +31,8 @@ export default function Post({ post }) {
       <Head>
         <title>{post.title} | MC Blog</title>
       </Head>
-      <Link href="/">
-        <button className="btn btn-primary">Back</button>
-      </Link>
       <div>
-        <h1>{ post.title }</h1>
         <div className="author">
-          <h6>{post.author.name}</h6>
           <div className="avatar">
             <div className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <Image
@@ -48,8 +42,11 @@ export default function Post({ post }) {
                 alt={post.author.name}>
               </Image>
             </div>
+          <h6>{post.author.name}</h6>
           </div>
         </div>
+        <Image src={ post.coverPhoto.url } width={600} height={300} alt="Cover photo" />
+        <h1 className="text-3xl md:text-5xl mt-6 mb-4 font-bold">{ post.title }</h1>
         <div
           dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
       </div>
